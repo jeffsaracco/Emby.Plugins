@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Slack Notifications</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
+            integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="
+            crossorigin="anonymous"></script>
 </head>
 <body>
     <div data-role="page" class="page type-interior pluginConfigurationPage slackConfigurationPage" data-require="emby-input,emby-button,emby-checkbox,emby-select">
@@ -57,10 +60,11 @@
         </div>
 
         <script type="text/javascript">
-(function () {
+
+            (function () {
 
                 var pluginId = "e7bb7839-a69f-409e-a26e-ad7e0fab31cd";
-
+                
                 function loadUserConfig(page, userId) {
 
                     Dashboard.showLoadingMsg();
@@ -179,7 +183,9 @@
                     return false;
                 });
 
-            })();</script>
+            })();
+
+        </script>
 
 
     </div>
