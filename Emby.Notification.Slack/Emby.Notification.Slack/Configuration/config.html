@@ -57,11 +57,10 @@
         </div>
 
         <script type="text/javascript">
-
-            (function () {
+(function () {
 
                 var pluginId = "e7bb7839-a69f-409e-a26e-ad7e0fab31cd";
-                
+
                 function loadUserConfig(page, userId) {
 
                     Dashboard.showLoadingMsg();
@@ -74,11 +73,11 @@
 
                         })[0] || {};
 
-                        $('#chkEnableSlack', page).prop('checked', slackConfig.Enabled || false);
-                        $('#txtSlackWebHookUri', page).val(slackConfig.SlackWebHookURI || '');
-                        $('#txtSlackChannel', page).val(slackConfig.Channel || '#general');
-                        $('#txtSlackEmoji', page).val(slackConfig.Emoji || ':ghost:');
-                        $('#txtSlackUserName', page).val(slackConfig.UserName || 'Emby');
+                        document.getElementById('chkEnableSlack').checked = slackConfig.Enabled || false;
+                        document.getElementById('txtSlackWebHookUri').value = slackConfig.SlackWebHookURI || '';
+                        document.getElementById('txtSlackChannel').value = slackConfig.Channel || '#general'e;
+                        document.getElementById('txtSlackEmoji').value = slackConfig.Emoji || ':ghost:';
+                        document.getElementById('txtSlackUserName').value = slackConfig.UserName || 'Emby';
 
                         Dashboard.hideLoadingMsg();
                     });
@@ -168,11 +167,11 @@
 
                         slackConfig.MediaBrowserUserId = userId;
 
-                        slackConfig.Enabled = $('#chkEnableSlack', form).prop('checked');
-                        slackConfig.SlackWebHookURI = $('#txtSlackWebHookUri', form).val();
-                        slackConfig.Channel = $('#txtSlackChannel', form).val();
-                        slackConfig.Emoji = $('#txtSlackEmoji', form).val();
-                        slackConfig.UserName = $('#txtSlackUserName', form).val();
+                        slackConfig.Enabled = document.getElementById('chkEnableSlack').checked;
+                        slackConfig.SlackWebHookURI = document.getElementById('txtSlackWebHookUri').value;
+                        slackConfig.Channel = document.getElementById('txtSlackChannel').value;
+                        slackConfig.Emoji = document.getElementById('txtSlackEmoji').value;
+                        slackConfig.UserName =  document.getElementById('txtSlackUserName').value;
 
                         ApiClient.updatePluginConfiguration(pluginId, config).then(Dashboard.processPluginConfigurationUpdateResult);
                     });
@@ -180,9 +179,7 @@
                     return false;
                 });
 
-            })();
-
-        </script>
+            })();</script>
 
 
     </div>
